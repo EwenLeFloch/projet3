@@ -19,8 +19,26 @@
 		<meta name="twitter:image" content="" />
 		<meta name="twitter:creator" content="@EwenLF" />
 
+
+		<link rel="stylesheet" href="style.css">
+		<script src="https://kit.fontawesome.com/7d99df5aef.js" crossorigin="anonymous"></script>
+
 	</head>
 	<body>
-		Bonjour toi ça
+		<section class="carousel">
+			<div class="carousel__slider">
+				<img src="first-image.jpg" alt="première image" class="active carousel__slider__image" />
+				<img src="other-image.jpg" alt="other image" class="carousel__slider__image">
+				<img src="last-image.jpg" alt="dernière image" class="carousel__slider__image"/>
+			</div>
+			<div class="carousel__button">
+				<div class="carousel__button__nav carousel__button__nav--left"><i class="fa-solid fa-arrow-left"></i></div>
+				<div class="carousel__button__nav carousel__button__nav--pause"><i class="fa-solid fa-circle-pause"></i></div>
+				<div class="carousel__button__nav carousel__button__nav--play"><i class="fa-solid fa-circle-play"></i></div>
+				<div class="carousel__button__nav carousel__button__nav--right"><i class="fa-solid fa-arrow-right"></i></div>
+			</div>
+		</section>
+
+	<script src="app.js"></script>
 	</body>
 </html>
