@@ -1,0 +1,48 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #f1f1f1;
+}
+
+.carousel {
+    max-width: 50%;
+    margin: 0 auto;
+}
+.carousel__slider__image {
+    max-width: 100%;
+    display: none;
+}
+img.active {
+    display: block;
+    animation: fade .8s;
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.carousel__button {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .4);
+    display: flex;
+    justify-content: space-between;
+    font-size: 50px;
+}
+.carousel__button__nav {
+    margin: 0 15px;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.carousel__button__nav--play {
+    display: none;
+}
