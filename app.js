@@ -76,3 +76,32 @@ function keyPress(e){
     }
 }
 document.addEventListener('keydown', keyPress)
+
+/********MAP********/
+var map = L.map('map').setView([48.692054, 6.184417], 14);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap',
+    id: "mapbox/streets-v11",
+    tilesize: 512,
+}).addTo(map);
+
+/*******API JCDECAUX*******/
+fetch('https://api.jcdecaux.com/vls/v1/stations?contract=Nancy&apiKey=76925468bfb61509831395a181f54381959cba37')
+    .then(function (res) {
+        if (res.ok) {
+            return res.json();
+        }
+    })
+    .then(function (data) {
+        for (let element of data) {
+            var marker = L.marker([element.position.lat, element.position.lng]).addTo(map).on("click", markerOnClick);
+
+            function markerOnClick(e) {
+            document.querySelector('.location__reservation--titre').innerText = element.address;
+            document.querySelector('.location__reservation--places').innerText = element.available_bike_stands;
+            document.querySelector('.location__reservation--velos').innerText = element.available_bikes;
+            }
+        }
+    })
+    .catch(err => console.log(err));
