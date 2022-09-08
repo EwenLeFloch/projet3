@@ -46,7 +46,7 @@
 			<form  class="location__reservation">
 				<h3>Adresse : <span class="location__reservation--titre">...</span></h3>
 				<h3>Places disponibles : <span class="location__reservation--places">...</span></h3>
-				<h3>Vélos disponibles :<span class="location__reservation--velos">...</span></h3>
+				<h3>Vélos disponibles : <span class="location__reservation--velos">...</span></h3>
 
 				<div class="location__reservation--nom">
 					<label for="nom">Nom:</label>
@@ -56,6 +56,10 @@
 					<label for="prenom">Prénom :</label>
 					<input type="text" name="prenom" id="prenom" required />
 				</div>
+				<div class="location__reservation--reserver">
+					<input type="submit" value="Réserver" id="reserver">
+				</div>
+				<div id="canvas"><canvas id="signature"></canvas></div>
 				
 			</form>
 		</section>

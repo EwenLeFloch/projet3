@@ -78,7 +78,7 @@ function keyPress(e){
 document.addEventListener('keydown', keyPress)
 
 /********MAP********/
-var map = L.map('map').setView([48.692054, 6.184417], 14);
+let map = L.map('map').setView([48.692054, 6.184417], 14);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap',
@@ -95,7 +95,7 @@ fetch('https://api.jcdecaux.com/vls/v1/stations?contract=Nancy&apiKey=76925468bf
     })
     .then(function (data) {
         for (let element of data) {
-            var marker = L.marker([element.position.lat, element.position.lng]).addTo(map).on("click", markerOnClick);
+            let marker = L.marker([element.position.lat, element.position.lng]).addTo(map).on("click", markerOnClick);
 
             function markerOnClick(e) {
             document.querySelector('.location__reservation--titre').innerText = element.address;
@@ -105,3 +105,21 @@ fetch('https://api.jcdecaux.com/vls/v1/stations?contract=Nancy&apiKey=76925468bf
         }
     })
     .catch(err => console.log(err));
+
+/********CANVAS********/
+let reserver = document.getElementById("reserver");
+let canvas = document.getElementById("canvas");
+let nom = document.getElementById("nom").value;
+let prenom = document.getElementById("prenom").value;
+
+function signature(e) {
+
+    e.preventDefault();
+    if (nom.length === 0) {
+        alert("Veuillez indiquer un nom et un prénom valident");
+    } else {
+        canvas.style.display = "flex";
+        reserver.style.display = "none";
+    }
+}
+reserver.addEventListener("click", signature)
